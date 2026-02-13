@@ -1,21 +1,22 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-       <vType id="SUMO_DEFAULT_TYPE" accel="0.8" decel="4.5" sigma="0" length="5" minGap="2" maxSpeed="70"/>
-       <route id="always_right" edges="1 9 10 2 13 14 3 4 5 6 1"/>
-       <route id="always_left" edges="1 8 7 2 3 4 5 6 1"/>
-       <route id="horizontal" edges="1 2 3 4 5 6 1"/>
-       <route id="vertical_j0" edges="7 9 10 8 7"/>
-       <route id="vertical_j1" edges="11 13 14 12 11"/>
-       
-   <flow id="heavy_horizontal"
-      route="horizontal"
-      begin="0"
-      end="300"
-      vehsPerHour="2000"/>
+    <vType id="car" accel="1.5" decel="4.5" length="5" minGap="2" maxSpeed="13.89"/>
 
-    <flow id="light_vertical"
-      route="vertical_j0"
-      begin="0"
-      end="300"
-      vehsPerHour="300"/>
+    <route id="west_to_east" edges="1 2 3"/>
+    <route id="east_to_west" edges="4 5 6"/>
+
+    <route id="north1_to_south1" edges="7 9"/>
+    <route id="south1_to_north1" edges="10 8"/>
+
+    <route id="north2_to_south2" edges="11 13"/>
+    <route id="south2_to_north2" edges="14 12"/>
+       
+<flow id="heavy_west" route="west_to_east" begin="0" end="600" vehsPerHour="3000"/>
+<flow id="heavy_east" route="east_to_west" begin="0" end="600" vehsPerHour="3000"/>
+
+<flow id="light_north1" route="north1_to_south1" begin="0" end="600" vehsPerHour="300"/>
+<flow id="light_south1" route="south1_to_north1" begin="0" end="600" vehsPerHour="300"/>
+
+<flow id="light_north2" route="north2_to_south2" begin="0" end="600" vehsPerHour="300"/>
+<flow id="light_south2" route="south2_to_north2" begin="0" end="600" vehsPerHour="300"/>
 
 </routes>
